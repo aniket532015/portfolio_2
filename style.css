@@ -344,8 +344,8 @@ section.start-animation .title{
     color: #ff00ee;
 }
 .about img{
-    height: 25rem;
-    width: 25rem;
+    height: 20rem;
+    width: 20rem;
     background: rgba(255,255,255,.1);
     border: .2rem solid rgba(255,255,255,.3);
     border-radius: 50%;
