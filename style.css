@@ -542,6 +542,12 @@ section.start-animation .column h2 {
         opacity: 1;
     }
 }
+.start-animation {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
 
 
 
@@ -707,85 +713,106 @@ section.start-animation .skill-box2{
 }
 
 /* contact section */
-section form{
+/* Base form and input styling */
+section form {
     max-width: 70rem;
     text-align: center;
-    margin: 1rem auto;
-    margin-bottom: 3rem;
+    margin: 1rem auto 3rem;
 }
-.input-box{
+
+.input-box {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
-input:nth-child(1){
-    opacity: 0;
-    transform: translateX(-100px);
-}
-section.start-animation input:nth-child(1){
-    animation:Right 1s ease forwards;
-    animation-delay: 1.2s;
-}
-input:nth-child(2){
-    opacity: 0;
-    transform: translateX(100px);
-}
-section.start-animation input:nth-child(2){
-    animation:Left 1s ease forwards;
-    animation-delay: 1.2s;
-}
- input,textarea{
+
+input, textarea {
     width: 100%;
     padding: 1.5rem;
-    background:rgba(255,255,255,.1);
-    border: .2rem solid rgba(255,255,255,.3);
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.2rem solid rgba(255, 255, 255, 0.3);
     outline: none;
     backdrop-filter: blur(10px);
-    filter: drop-shadow(0 0 100px #ff00ee);
-    border-radius: .8rem;
-    gap: 2.5rem;
-    margin: .7rem 0;
-    transition: .3s ease;
-    opacity: 0;
+    border-radius: 0.8rem;
+    margin: 0.7rem 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
     transform: translateY(100px);
+    opacity: 0;
 }
-section.start-animation textarea{
-    animation:Bottom 1s ease forwards;
-    animation-delay: 1.2s;
-}
-input::placeholder{
-    font-size: 1.5rem;
-    letter-spacing: .02rem;
-}
-.input-box input{
+
+.input-box input {
     width: 49%;
 }
-input:focus,
-input:valid{
-    border: .2rem solid #ff00ee;
+
+input::placeholder, textarea::placeholder {
+    font-size: 1.5rem;
+    letter-spacing: 0.02rem;
 }
-textarea:focus,
-textarea:valid{
-    border: .2rem solid #ff00ee;
-}
-textarea{
+
+textarea {
     resize: none;
 }
-.contact .btn{
+
+input:focus, textarea:focus {
+    border: 0.2rem solid #ff00ee;
+}
+
+.contact .btn {
     margin-top: 2rem;
+    padding: 1rem 2rem;
     cursor: pointer;
-    filter: none;
-    border: .2rem solid rgba(255,255,255,.3);
+    background: transparent;
+    border: 0.2rem solid rgba(255, 255, 255, 0.3);
 }
-section.start-animation .btn{
-    animation:Bottom 1s ease forwards;
-    animation-delay: 1.4s;
-}
-.contact .btn:hover{
+
+.contact .btn:hover {
     background: #ff00ee;
-    box-shadow: 0 0 .3rem #ff00ee,
-    0 0 .7rem #ff00ee;
+    box-shadow: 0 0 0.3rem #ff00ee, 0 0 0.7rem #ff00ee;
+    color: #fff
 }
+
+/* Animation properties */
+section.start-animation input, 
+section.start-animation textarea, 
+section.start-animation .btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Animation delays for smoother sequence */
+section.start-animation input:nth-child(1) {
+    transition-delay: 0.2s;
+}
+section.start-animation input:nth-child(2) {
+    transition-delay: 0.4s;
+}
+section.start-animation textarea {
+    transition-delay: 0.6s;
+}
+section.start-animation .btn {
+    transition-delay: 0.8s;
+}
+
+/* Keyframe animation for fallback */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section.start-animation textarea,
+section.start-animation .btn {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+
+
+
 /* footer */
 
 footer{
@@ -882,4 +909,4 @@ footer i{
     .input-box input{
         width: 100%;
     }
-}
+} 
