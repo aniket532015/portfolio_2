@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("Final Payload:", formObject);
 
-        fetch('http://localhost:8080/send-email', {
+        fetch('http://localhost:9091/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formObject)
