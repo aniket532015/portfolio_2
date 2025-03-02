@@ -62,7 +62,21 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		</plugins>
-	</build>
+	
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.3.0</version> <!-- Use the latest version -->
+            <configuration>
+                <archive>
+                    <manifest>
+                        <mainClass>com.portfolio.StartPortfolio</mainClass> <!-- Change this to your main class -->
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
 
 </project>
