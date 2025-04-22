@@ -7,6 +7,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.MailException;
 import org.springframework.web.bind.annotation.*;
+import javax.net.ssl.*;
+
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.X509Certificate;
+import java.security.KeyManagementException;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -24,8 +29,38 @@ public class EmailController {
         return "OK";
     }
 
+    // Disables SSL verification
+    private static void disableSSLVerification() {
+        try {
+            // Disable SSL verification globally
+            TrustManager[] trustAllCertificates = new TrustManager[]{
+                    new X509TrustManager() {
+                        public X509Certificate[] getAcceptedIssuers() {
+                            return null;
+                        }
+
+                        public void checkClientTrusted(X509Certificate[] certs, String authType) {
+                        }
+
+                        public void checkServerTrusted(X509Certificate[] certs, String authType) {
+                        }
+                    }
+            };
+
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(null, trustAllCertificates, new java.security.SecureRandom());
+            HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+            // Ignore Hostname verification
+            HttpsURLConnection.setDefaultHostnameVerifier((hostname, session) -> true);
+        } catch (NoSuchAlgorithmException | KeyManagementException e) {
+            e.printStackTrace();
+        }
+    }
+
     @PostMapping
     public String sendEmail(@RequestBody ContactForm form) {
+        disableSSLVerification(); // Disable SSL verification
+
         try {
             MimeMessage message = javaMailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -51,4 +86,3 @@ public class EmailController {
         }
     }
 }
-
