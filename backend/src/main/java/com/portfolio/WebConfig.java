@@ -12,20 +12,27 @@ public class WebConfig {
     @Bean
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
+
+        // ✅ Allow specific origins
+        config.addAllowedOrigin("http://aniket.uk");
+        config.addAllowedOrigin("https://aniket.uk"); 
+        config.addAllowedOrigin("http://www.aniket.uk");
+        config.addAllowedOrigin("https://www.aniket.uk");
         
-        // Allow all origins (or specify if needed for security)
-        config.addAllowedOriginPattern("*");
-        
-        // Allowed HTTP methods
+        // ✅ Allow localhost during development
+        config.addAllowedOrigin("http://127.0.0.1:5500");
+
+        // ✅ Allow all methods
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
-        
-        // Allowed headers
+        config.addAllowedMethod("OPTIONS");
+
+        // ✅ Allow all headers
         config.addAllowedHeader("*");
-        
-        // Allow sending credentials like cookies
+
+        // ✅ Allow credentials for cookies
         config.setAllowCredentials(true);
 
         // Apply CORS settings to all paths
