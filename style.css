@@ -135,12 +135,9 @@ section{
     animation-delay: 2s,1.2s;
 }
 @keyframes textSlide{
-    0%,15%,100%{
-        background-position: calc(-1 * var(--ta-w)) 0;
-    }
-    60%,90%{
-        background-position: 0 0;
-    }
+    /* Keep hidden briefly, then reveal linearly, then hold */
+    0%,8%{ background-position: calc(-1 * var(--ta-w)) 0; }
+    82%,100%{ background-position: 0 0; }
 }
 .text-animation::before{
     content: "";
@@ -157,18 +154,10 @@ section{
     animation-delay: 2s,1.2s;
 }
 @keyframes CursorSlide {
-    0%,10%,100%{
-        width: 0;
-    }
-    65%,78%,85%{
-        opacity: 1;
-        width: 100%;
-    }
-    75%,81%
-    {
-        opacity: 0;
-    }
-
+    /* Caret travels in sync with reveal, then fades */
+    0%,8%{ width: 0; opacity: 1; }
+    82%{ width: 100%; opacity: 1; }
+    84%,100%{ opacity: 0; width: 100%; }
 }
 .text-content p{
     font-size: 1.4rem;
@@ -1003,9 +992,10 @@ footer{
     .home .text-content h1{ font-size:3.6rem; }
     .text-content p{ text-align:center; }
 
-    .text-animation{ --ta-w: 30rem; width: var(--ta-w); }
+    /* Prevent headline overflow on mobile */
+    .text-animation{ --ta-w: 100%; width: 100%; max-width: 100%; }
     .text-animation::before{ display:none; }
-    .text-animation h2{ font-size:2.6rem; }
+    .text-animation h2{ font-size:2.5rem; white-space: normal; overflow-wrap: anywhere; word-break: normal; text-align:center; }
 
     .btn-section{ width:100%; height:auto; justify-content:center; gap:1rem; flex-wrap:wrap; }
     .btn-section::before{ display:none; }
@@ -1017,6 +1007,11 @@ footer{
 
     .about{ flex-direction: column; }
     .about img{ width:20rem; height:20rem; }
+
+    /* Ensure footer centers on mobile */
+    footer, .footer-content, .footer-text{ text-align:center; }
+    .footer-contact{ justify-content:center; }
+    .contact-item{ margin-left:auto; margin-right:auto; }
 }
 @media(max-width:450px){
     html{
