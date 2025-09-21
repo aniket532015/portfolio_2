@@ -989,58 +989,34 @@ footer{
     }
 }
 @media(max-width:768px){
-    #menu{
-        display: block;
-    }
+    #menu{ display:block; }
     .navbar{
-        position: absolute;
-        left: 0;
-        top: 100%;
-        width: 100%;
-        padding: 1rem 3%;
-        background: #0f0a0a;
-        border-top: 1px solid rgba(255,255,255,.1);
-        border-bottom: .2rem solid rgba(255,255,255,.1);
-        display: none;
+        position:absolute; left:0; top:100%; width:100%; padding:1rem 3%;
+        background:#0f0a0a; border-top:1px solid rgba(255,255,255,.1); border-bottom:.2rem solid rgba(255,255,255,.1);
+        display:none;
     }
-    .navbar.active{
-        display: block;
-    }
-    .navbar a{
-        display: block;
-        margin: 3rem 0;
-        font-size: 2rem;
-    }
-    .home{
-        flex-direction: column-reverse;
-    }
-    .home .text-content{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .home .text-content h1{
-        font-size: 4rem;
-    }
-    .text-animation{
-        --ta-w: 30rem;
-        width: var(--ta-w);
-    }
-    .text-animation::before{ display: none; }
-    .text-animation h2{
-        font-size: 2.8rem;
-    }
-    .home img{
-        width: 40vw;
-    }
-    .about{
-        flex-direction: column;
-    }
-    .about img{
-        width: 20rem;
-        height: 20rem;
-    }
+    .navbar.active{ display:block; }
+    .navbar a{ display:block; margin:3rem 0; font-size:2rem; }
+
+    .home{ flex-direction: column-reverse; align-items:center; text-align:center; }
+    .home .text-content{ display:flex; justify-content:center; align-items:center; flex-direction:column; }
+    .home .text-content h1{ font-size:3.6rem; }
+    .text-content p{ text-align:center; }
+
+    .text-animation{ --ta-w: 30rem; width: var(--ta-w); }
+    .text-animation::before{ display:none; }
+    .text-animation h2{ font-size:2.6rem; }
+
+    .btn-section{ width:100%; height:auto; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .btn-section::before{ display:none; }
+    .btn{ width:auto; min-width:14rem; height:4.4rem; padding:0 1.6rem; }
+
+    .social-media{ display:flex; justify-content:center; }
+
+    .home img{ width: 58vw; margin-top: 1.2rem; }
+
+    .about{ flex-direction: column; }
+    .about img{ width:20rem; height:20rem; }
 }
 @media(max-width:450px){
     html{
