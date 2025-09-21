@@ -70,7 +70,7 @@ export default async function handler(req, res) {
           ${avatarHtml}
           <div>
             <div style='font-weight:600;'>Aniket Kumar</div>
-            <div style='opacity:.85;'>Software Engineer</div>
+            <div style='opacity:.85;'>Senior Associate DevOps Consultant</div>
           </div>
         </div>
         <div style='margin-top:8px;'>
