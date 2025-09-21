@@ -1,3 +1,6 @@
 {
-  "version": 2
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/send-email", "destination": "http://43.204.89.233:9091/send-email"  }
+  ]
 }

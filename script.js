@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(event.target);
         const formObject = Object.fromEntries(formData.entries());
 
-        fetch('http://43.204.89.233:9091/send-email', {
+        fetch('/api/send-email', {
         // fetch('http://aniket.uk:9091/send-email', {
     
             method: 'POST',
