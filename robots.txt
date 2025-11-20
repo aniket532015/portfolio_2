@@ -1,0 +1,9 @@
+# robots.txt — strict: block all crawling and indexing
+# Note: This is advisory (not a security mechanism). Most reputable bots obey it.
+
+User-agent: *
+Disallow: /
+
+# Keep this file itself accessible
+Allow: /robots.txt
+

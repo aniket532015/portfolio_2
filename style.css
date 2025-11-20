@@ -260,7 +260,8 @@ section{
 }
 .text-animation{
     position: relative;
-    width: 45rem;
+    --ta-w: 60rem;
+    width: var(--ta-w);
 }
 .text-animation h2{
     font-size: 3.2rem;
@@ -279,12 +280,9 @@ section{
     animation-delay: 2s,1.2s;
 }
 @keyframes textSlide{
-    0%,15%,100%{
-        background-position: -45rem 0;
-    }
-    60%,90%{
-        background-position: 0 0;
-    }
+    /* Keep hidden briefly, then reveal linearly, then hold */
+    0%,8%{ background-position: calc(-1 * var(--ta-w)) 0; }
+    82%,100%{ background-position: 0 0; }
 }
 .text-animation::before{
     content: "";
@@ -301,18 +299,10 @@ section{
     animation-delay: 2s,1.2s;
 }
 @keyframes CursorSlide {
-    0%,10%,100%{
-        width: 0;
-    }
-    65%,78%,85%{
-        opacity: 1;
-        width: 100%;
-    }
-    75%,81%
-    {
-        opacity: 0;
-    }
-
+    /* Caret travels in sync with reveal, then fades */
+    0%,8%{ width: 0; opacity: 1; }
+    82%{ width: 100%; opacity: 1; }
+    84%,100%{ opacity: 0; width: 100%; }
 }
 .text-content p{
     font-size: 1.4rem;
@@ -897,8 +887,8 @@ input:focus, textarea:focus {
 }
 
 /* Animation properties */
-section.start-animation input, 
-section.start-animation textarea, 
+section.start-animation input,
+section.start-animation textarea,
 section.start-animation .btn {
     transform: translateY(0);
     opacity: 1;
@@ -1083,9 +1073,7 @@ footer{
     }
 }
 @media(max-width:768px){
-    #menu{
-        display: block;
-    }
+    #menu{ display:block; }
     .navbar{
         position: absolute;
         left: 0;
@@ -1098,27 +1086,40 @@ footer{
         display: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     }
-    .navbar.active{
-        display: block;
+    .navbar.active{ display:block; }
+    .navbar a{ display:block; margin:3rem 0; font-size:2rem; }
+
+    .home{ flex-direction: column-reverse; align-items:center; text-align:center; }
+    .home .text-content{ display:flex; justify-content:center; align-items:center; flex-direction:column; }
+    .home .text-content h1{ font-size:3.6rem; }
+    .text-content p{ text-align:center; }
+
+    /* Prevent headline overflow on mobile */
+    .text-animation{ --ta-w: 100%; width: 100%; max-width: 100%; }
+    .text-animation::before{ display:none; }
+    .text-animation h2{ font-size:2.5rem; white-space: normal; overflow-wrap: anywhere; word-break: normal; text-align:center; }
+
+    .btn-section{ width:100%; height:auto; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .btn-section::before{ display:none; }
+    .btn{ width:auto; min-width:14rem; height:4.4rem; padding:0 1.6rem; }
+
+    .social-media{ display:flex; justify-content:center; }
+
+    .home img{ width: 58vw; margin-top: 1.2rem; }
+
+    .about{ flex-direction: column; }
+    .about img{ width:20rem; height:20rem; }
+
+    /* Ensure footer centers on mobile */
+    footer, .footer-content, .footer-text{ text-align:center; }
+    .footer-contact{ justify-content:center; }
+    .contact-item{ margin-left:auto; margin-right:auto; }
+}
+@media(max-width:450px){
+    html{
+        font-size: 50%;
     }
-    .navbar a{
-        display: block;
-        margin: 3rem 0;
-        font-size: 2rem;
-    }
-    .home{
-        flex-direction: column-reverse;
-    }
-    .home .text-content{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .home .text-content h1{
-        font-size: 4rem;
-    }
-    .text-animation{
+    .input-box input{
         width: 100%;
         max-width: 40rem;
     }
