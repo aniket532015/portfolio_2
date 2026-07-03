@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aniket Kumar</title>
+    <!-- Cache Control: disable caching for development -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Aniket Kumar | Senior DevOps Consultant & Cloud Engineer</title>
+    <meta name="description"
+        content="Portfolio of Aniket Kumar, Senior Associate DevOps Consultant. Specializing in AWS cloud infrastructure, CI/CD pipelines, Kubernetes, automation, and Spring Boot backend development.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
+    <!-- Canvas for interactive particle background -->
+    <canvas id="particle-canvas"></canvas>
+
     <!-- *************************Preloader************************* -->
-    <div class="preloader">
+    <div class="preloader" id="preloader">
         <div class="preloader-content">
             <div id="lottie-animation"></div>
-            <p class="loading-text">Loading<span class="dots"></span></p>
+            <p class="loading-text">INITIALIZING SYSTEMS<span class="dots"></span></p>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
@@ -22,202 +38,307 @@
     </div>
 
     <!-- *************************Navbar************************* -->
-    <header class="header">
-        <a href="index.html#" class="logo">Aniket</a>
-        <i class='bx bx-menu' id="menu" style='color:#1f2937'></i>
+    <header class="header" id="header">
+        <a href="#home" class="logo">Aniket<span class="logo-dot">.</span></a>
+        <div class="header-actions">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+                <i class='bx bx-sun sun-icon'></i>
+                <i class='bx bx-moon moon-icon'></i>
+            </button>
+            <i class='bx bx-menu' id="menu"></i>
+        </div>
         <nav class="navbar">
-            <a href="index.html#home" style="--vlr:1" class="active">Home</a>
-            <!-- <a href="index.html#about" style="--vlr:2">About Me</a> -->
-            <a href="index.html#experience" style="--vlr:3">Experience</a>
-            <a href="index.html#education" style="--vlr:4">Education</a>
-            <a href="index.html#skills" style="--vlr:5">Skills</a>
-            <a href="index.html#projects" style="--vlr:6">Projects</a>
-            <a href="index.html#certifications" style="--vlr:7">Certifications</a>
-            <a href="index.html#contact-form" style="--vlr:8">Contact Me</a>
-            <!-- <a href="#" style="--vlr:5">Resume Download</a> -->
+            <a href="#home" class="active">Home</a>
+            <a href="#dashboard">Dashboard</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#education">Education</a>
+            <a href="#contact-form" class="nav-contact-btn">Let's Talk</a>
         </nav>
     </header>
+
     <!-- *************************Home Section************************* -->
-    <section class="home"  id="home">
+    <section class="home" id="home">
         <div class="text-content">
-            <h1>I'm Aniket Kumar</h1>
-            <div class="text-animation">
-                <h2>Senior Associate DevOps Consultant</h2>
+            <div class="badge">
+                <span class="pulse-indicator"></span>
+                <span>Available for Projects & Consulting</span>
             </div>
-            <p>DevOps Consultant with 2 years of experience in automation, system reliability, Java backend development, and cloud deployments on AWS. I build and operate scalable services using Java, Spring Boot, MuleSoft, Linux, CI/CD pipelines, and modern monitoring to reduce manual work and keep systems highly available for enterprise clients.</p>
+            <h1>I'm <span class="highlight">Aniket Kumar</span></h1>
+            <div class="text-animation">
+                <span class="typing-prefix">A&nbsp;</span>
+                <span id="typed-text">Senior Associate DevOps Consultant</span>
+                <span class="typed-cursor">|</span>
+            </div>
+            <p class="hero-description">DevOps Engineer with 2+ years of experience in cloud infrastructure, CI/CD
+                automation, application deployment, monitoring, and backend systems. Experienced in AWS, Docker,
+                Kubernetes, Jenkins, Terraform, Ansible, Linux, and Java Spring Boot. I specialize in automating
+                deployments, improving system reliability, and supporting enterprise-scale applications.</p>
 
             <div class="btn-section">
-                <!-- <button class="btn">Hire me</button> -->
-                <div class="btn-section">
-                    <button class="btn" onclick="window.location.href='index.html#contact'" aria-label="Navigate to contact section">Let's Talk</button>
-                    <a href="https://drive.google.com/file/d/15UJqWmZYfZMwgphSPIRa-eOJtviEx99d/view?usp=drivesdk" target="_blank" rel="noopener noreferrer" style="text-decoration: none;" class="btn" aria-label="Download Updated Resume">Download Resume</a>
-                </div>
-
+                <a href="#contact-form" class="btn btn-primary" aria-label="Navigate to contact section">
+                    <span>Let's Talk</span> <i class='bx bx-message-square-detail'></i>
+                </a>
+                <a href="https://drive.google.com/file/d/15UJqWmZYfZMwgphSPIRa-eOJtviEx99d/view?usp=drivesdk"
+                    target="_blank" rel="noopener noreferrer" class="btn btn-secondary"
+                    aria-label="Download Updated Resume">
+                    <span>Download CV</span> <i class='bx bx-download'></i>
+                </a>
             </div>
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/aniket-kumar-840b571b8/" target="_blank"><i class='bx bxl-linkedin' style="--vlr:7"></i></a>
-                <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github' style="--vlr:8"></i></a>
-                <a href="mailto:akaniketkumar532015@gmail.com" target="_blank"><i class='bx bx-envelope' style="--vlr:9"></i></a>
+                <a href="https://www.linkedin.com/in/aniket-kumar-840b571b8/" target="_blank"
+                    aria-label="LinkedIn Profile"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/aniket532015" target="_blank" aria-label="GitHub Profile"><i
+                        class='bx bxl-github'></i></a>
+                <a href="mailto:akaniketkumar532015@gmail.com" target="_blank" aria-label="Email Me"><i
+                        class='bx bx-envelope'></i></a>
             </div>
         </div>
-        <img src="Image (2)-Photoroom.png" alt="Aniket Kumar">
-    </section>
-    <!-- *************************About Section************************* -->
-    <!-- <section class="about" id="about">
-        <h2 class="title">About <span>Me</span></h2>
-        <img src="Image (2)-Photoroom.png" alt="Aniket Kumar" class="aboutImg">
-        <div class="text-content2">
-            <h2>Senior DevOps Consultant</h2>
-            <p>DevOps Consultant focused on automation, observability, and reliable cloud-native systems on AWS. I currently work at InvenioLSI in Hyderabad (since June 2024), where I design and maintain CI/CD pipelines, production monitoring, and backend services for clients such as Universal Music Group.</p>
-            <button class="btn">Read More</button>
+        <div class="hero-image-container">
+            <div class="glowing-orb"></div>
+            <div class="image-border-glow">
+                <img src="Image (2)-Photoroom.png" alt="Aniket Kumar" class="hero-img">
+            </div>
         </div>
-    </section> -->
+    </section>
+
+    <!-- *************************DevOps Command Center************************* -->
+    <section class="dashboard-section" id="dashboard">
+        <h2 class="title">DevOps <span>Command Center</span></h2>
+        <p class="section-subtitle">Monitor my real-time GitHub telemetry, run simulated pipeline builds, and query my
+            profile via the interactive terminal.</p>
+
+        <div class="command-grid">
+            <!-- Left Side: System Metrics Dashboard -->
+            <div class="glass-panel dashboard-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class='bx bxl-github text-cyan'></i>
+                        <h3>GitHub Live Telemetry</h3>
+                    </div>
+                    <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                        <button id="btn-connect-github" class="btn-pipeline-run"
+                            style="padding: 0.4rem 1rem; font-size: 1.1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); display: inline-flex; align-items: center; gap: 0.4rem;"
+                            title="Connect GitHub Token to view private repos">
+                            <i class='bx bx-key'></i> Connect Token
+                        </button>
+                        <div class="status-badge online" id="github-status-badge">
+                            <span class="pulse-dot"></span> GitHub API: OK
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-label">PUBLIC REPOSITORIES</span>
+                        <div class="metric-value-container">
+                            <span class="metric-value" id="github-repos-val">--</span>
+                        </div>
+                        <div class="metric-chart">
+                            <svg class="sparkline" viewBox="0 0 100 30" id="cpu-chart">
+                                <path d="M0,15 L10,14 L20,18 L30,12 L40,15 L50,8 L60,14 L70,11 L80,16 L90,13 L100,10"
+                                    fill="none" stroke="#06b6d4" stroke-width="2"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-label">GITHUB FOLLOWERS</span>
+                        <div class="metric-value-container">
+                            <span class="metric-value" id="github-followers-val">--</span>
+                        </div>
+                        <div class="metric-chart">
+                            <svg class="sparkline" viewBox="0 0 100 30" id="mem-chart">
+                                <path d="M0,20 L10,21 L20,19 L30,20 L40,18 L50,19 L60,17 L70,18 L80,18 L90,17 L100,16"
+                                    fill="none" stroke="#6366f1" stroke-width="2"></path>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <span class="metric-label">LATEST COMMIT MESSAGE</span>
+                        <div class="metric-value-container"
+                            style="max-width: 100%; overflow: hidden; min-height: 3.5rem;">
+                            <span class="metric-value" id="github-commit-val"
+                                style="font-size: 1.25rem; font-family: var(--font-mono); font-weight: 500; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; line-height: 1.4;">Fetching...</span>
+                        </div>
+                        <div class="metric-progress" style="margin-top: 0.5rem;">
+                            <span class="progress-text" id="github-commit-sha"
+                                style="text-align: left; font-size: 1rem; color: var(--text-muted); font-family: var(--font-mono); display: block;">SHA:
+                                --</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pipeline Control -->
+                <div class="pipeline-container">
+                    <div class="pipeline-header">
+                        <h4>CI/CD Automation Pipeline</h4>
+                        <button id="btn-run-pipeline" class="btn-pipeline-run">
+                            <i class='bx bx-play-circle'></i> Trigger Build
+                        </button>
+                    </div>
+
+                    <div class="pipeline-visual">
+                        <div class="pipeline-step" id="step-source">
+                            <div class="step-icon"><i class='bx bxs-folder-open'></i></div>
+                            <span class="step-name">Source</span>
+                        </div>
+                        <div class="pipeline-connector" id="conn-1"></div>
+                        <div class="pipeline-step" id="step-build">
+                            <div class="step-icon"><i class='bx bx-cog'></i></div>
+                            <span class="step-name">Build</span>
+                        </div>
+                        <div class="pipeline-connector" id="conn-2"></div>
+                        <div class="pipeline-step" id="step-test">
+                            <div class="step-icon"><i class='bx bx-check-shield'></i></div>
+                            <span class="step-name">Test</span>
+                        </div>
+                        <div class="pipeline-connector" id="conn-3"></div>
+                        <div class="pipeline-step" id="step-deploy">
+                            <div class="step-icon"><i class='bx bx-cloud-upload'></i></div>
+                            <span class="step-name">Deploy</span>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-logs" id="pipeline-logs">
+                        <div class="log-line">[SYSTEM] Pipeline standing by. Press "Trigger Build" to deploy portfolio.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure Status Lights -->
+                <div class="infra-status">
+                    <h4>Cloud Infrastructure Registry</h4>
+                    <div class="status-lights-grid">
+                        <div class="status-light-item">
+                            <span class="status-dot green"></span>
+                            <span class="status-name">AWS EC2</span>
+                        </div>
+                        <div class="status-light-item">
+                            <span class="status-dot green"></span>
+                            <span class="status-name">Jenkins Master</span>
+                        </div>
+                        <div class="status-light-item">
+                            <span class="status-dot green"></span>
+                            <span class="status-name">Docker Hub</span>
+                        </div>
+                        <div class="status-light-item">
+                            <span class="status-dot green"></span>
+                            <span class="status-name">Kubernetes</span>
+                        </div>
+                        <div class="status-light-item">
+                            <span class="status-dot green"></span>
+                            <span class="status-name">AWS CloudWatch</span>
+                        </div>
+                        <div class="status-light-item">
+                            <span class="status-dot green"></span>
+                            <span class="status-name">PostgreSQL DB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: DevOps Terminal Emulator -->
+            <div class="glass-panel terminal-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <i class='bx bx-terminal text-green'></i>
+                        <h3>aniket@devops-node:~</h3>
+                    </div>
+                    <div class="terminal-controls">
+                        <span class="control-dot close"></span>
+                        <span class="control-dot minimize"></span>
+                        <span class="control-dot maximize"></span>
+                    </div>
+                </div>
+
+                <div class="terminal-body" id="terminal-body">
+                    <div class="terminal-output">
+                        <div class="term-line welcome-msg">Welcome to Aniket Kumar's Portfolio Terminal v2.1.0 (Ubuntu
+                            22.04 LTS)</div>
+                        <div class="term-line welcome-msg">Type <span class="text-cyan">help</span> to view available
+                            commands.</div>
+                        <br>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt">aniket@portfolio:~$</span>
+                        <input type="text" id="terminal-input" autocomplete="off" autofocus
+                            placeholder="Type a command...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- *************************Experience Section************************* -->
     <section class="experience" id="experience">
         <h2 class="title">My <span>Experience</span></h2>
-        <div class="row start-animation">
-            <div class="column">
-                <h2>Professional Experience</h2>
-                <div class="box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">June 2024 - Present <i class='bx bxs-calendar'></i></div>
-                            <h3>Senior Associate DevOps Consultant</h3>
-                            <p><strong>Invenio business solutions</strong> - Hyderabad, India</p>
-                            <ul style="margin-left: 20px; margin-top: 10px;">
-                                <li>Developed a backend application to automate financial data transformation, reducing manual processing time by 40%</li>
-                                <li>Optimized CI/CD pipelines with Jenkins, Git, and AWS, reducing deployment time and enhancing development workflows</li>
-                                <li>Implemented AWS CloudWatch logging and monitoring for EC2 instances and SQS queues to ensure high availability and proactive issue detection</li>
-                                <li>Performed server maintenance and automated infrastructure management to improve system reliability and scalability</li>
-                                <li>Created Java-based automation scripts to streamline admin tasks and enhance operational productivity</li>
-                                <li>Actively contributed to Symphony migration project using MuleSoft (Mule 4), ensuring robust integration and secure service connectivity across cloud platforms</li>
-                            </ul>
-                        </div>
+        <div class="experience-timeline">
+            <!-- Experience Item 1: Senior Associate -->
+            <div class="timeline-item glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                    <div class="timeline-title-group">
+                        <h3>Senior Associate DevOps Consultant</h3>
+                        <h4>InvenioLSI</h4>
+                    </div>
+                    <div class="timeline-meta">
+                        <span class="timeline-location"><i class='bx bx-map'></i> Hyderabad, India</span>
+                        <span class="timeline-date"><i class='bx bx-calendar'></i> June 2024 - Present</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- *************************Education Section************************* -->
-    <section class="education" id="education">
-        <h2 class="title">My <span>Education</span></h2>
-        <div class="row start-animation">
-            <div class="column">
-                <h2>Education</h2>
-                <div class="box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">May 2020 - May 2024 <i class='bx bxs-calendar'></i></div>
-                            <h3>Bachelor of Technology in Computer Science and Engineering</h3>
-                            <p>G.I.E.T University, Orissa, India</p>
-                            <p>Among the top 5% of the batch</p>
-                            <p>EX LEAD @ Data Science Club (G.I.E.T University)</p>
-                            <p>EX LEAD @ Google DSC</p>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">2018-19 <i class='bx bxs-calendar'></i></div>
-                            <h3>Class XII: Science</h3>
-                            <p>S.D.S.M School of Excellence, Jamshedpur, 2019 (57%)</p>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">2016-17 <i class='bx bxs-calendar'></i></div>
-                            <h3>Class X: CBSE</h3>
-                            <p>Jamshedpur Public School, Jamshedpur, 2017 (CGPA: 6.8)</p>
-                        </div>
-                    </div>
-
+                <div class="timeline-body">
+                    <ul class="experience-list">
+                        <li>Designed and maintained <strong>Jenkins CI/CD pipelines</strong> reducing deployment effort
+                            by <strong>50%</strong>.</li>
+                        <li>Managed <strong>AWS infrastructure</strong> including EC2, S3, IAM and CloudWatch for
+                            enterprise applications.</li>
+                        <li>Supported deployment and maintenance of <strong>Java Spring Boot microservices</strong>.
+                        </li>
+                        <li>Implemented <strong>monitoring dashboards</strong>, health checks and alerting mechanisms
+                            using AWS CloudWatch.</li>
+                        <li>Automated operational workflows reducing manual effort by <strong>40%</strong>.</li>
+                        <li>Troubleshot infrastructure and application issues ensuring <strong>high
+                                availability</strong>.</li>
+                        <li>Worked with <strong>Docker containers</strong> and deployment automation across staging and
+                            production environments.</li>
+                        <li>Delivered solutions for enterprise clients including <strong>Universal Music Group</strong>.
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-
-    <!-- *************************Skills Section************************* -->
-    <section class="skills" id="skills">
-        <h2 class="title">My <span>Skills</span></h2>
-        <div class="wrapper">
-            <div class="skill-content">
-                <h3 class="skill-title">Technical Skills</h3>
-                <div class="skill-box skill-box1">
-                    <div class="single-skill">
-                        <span class="topic">Java</span>
-                        <span class="topic">90%</span>
+            <!-- Experience Item 2: Associate -->
+            <div class="timeline-item glass-panel">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                    <div class="timeline-title-group">
+                        <h3>Associate DevOps Consultant</h3>
+                        <h4>InvenioLSI</h4>
                     </div>
-                    <div class="bar-side">
-                        <div class="bar bar-2"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">Python</span>
-                        <span class="topic">85%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-1"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">HTML/CSS/JavaScript</span>
-                        <span class="topic">80%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-3"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">SQL</span>
-                        <span class="topic">75%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-4"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">MuleSoft (Mule 4)</span>
-                        <span class="topic">85%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-1"></div>
+                    <div class="timeline-meta">
+                        <span class="timeline-location"><i class='bx bx-map'></i> Hyderabad, India</span>
+                        <span class="timeline-date"><i class='bx bx-calendar'></i> June 2024 (Initial Role)</span>
                     </div>
                 </div>
-            </div>
-            <div class="skill-content">
-                <h3 class="skill-title">Tools & Technologies</h3>
-                <div class="skill-box skill-box2">
-                    <div class="single-skill">
-                        <span class="topic">AWS (EC2, S3, CloudWatch, SQS)</span>
-                        <span class="topic">85%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-1"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">Jenkins</span>
-                        <span class="topic">80%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-3"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">Spring Boot</span>
-                        <span class="topic">85%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-1"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">Linux</span>
-                        <span class="topic">75%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-4"></div>
-                    </div>
-                    <div class="single-skill">
-                        <span class="topic">CI/CD Pipelines</span>
-                        <span class="topic">80%</span>
-                    </div>
-                    <div class="bar-side">
-                        <div class="bar bar-3"></div>
-                    </div>
+                <div class="timeline-body">
+                    <ul class="experience-list">
+                        <li>Developed a backend application to automate financial data transformation, reducing manual
+                            processing time by <strong>40%</strong>.</li>
+                        <li>Optimized CI/CD pipelines with Jenkins, Git, and AWS, reducing deployment time and enhancing
+                            development workflows.</li>
+                        <li>Implemented AWS CloudWatch logging and monitoring for EC2 instances and SQS queues to ensure
+                            high availability and proactive issue detection.</li>
+                        <li>Performed server maintenance and automated infrastructure management to improve system
+                            reliability and scalability.</li>
+                        <li>Created Java-based automation scripts to streamline admin tasks and enhance operational
+                            productivity.</li>
+                        <li>Actively contributed to Symphony migration project using MuleSoft (Mule 4), ensuring robust
+                            integration and secure service connectivity across cloud platforms.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -225,27 +346,160 @@
 
     <!-- *************************Projects Section************************* -->
     <section class="projects" id="projects">
-        <h2 class="title">My <span>Projects</span></h2>
-        <div class="row start-animation">
-            <div class="column">
-                <h2>Featured Projects</h2>
-                <div class="box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">04/24 - 05/24 <i class='bx bxs-calendar'></i></div>
-                            <h3>Portfolio Website</h3>
-                            <p><strong>Tech Stack:</strong> Java, Spring Boot, AWS EC2, Jenkins, HTML/CSS/JS</p>
-                            <p>Deployed a dynamic portfolio on AWS EC2, achieving 99% uptime with automated CI/CD pipeline via Jenkins and GitHub tokens, reducing deployment time by 50%.</p>
-                        </div>
+        <h2 class="title">Featured <span>Projects</span></h2>
+        <div class="projects-grid">
+            <!-- Project 1: AWS CI/CD -->
+            <div class="project-card glass-panel">
+                <div class="project-header">
+                    <div class="project-icon"><i class='bx bx-git-branch'></i></div>
+                </div>
+                <h3>AWS CI/CD Pipeline</h3>
+                <p>Built automated deployment pipeline using Jenkins, GitHub and AWS EC2. Reduced deployment time and
+                    improved release reliability across environments.</p>
+                <div class="project-tech">
+                    <span>Jenkins</span>
+                    <span>AWS EC2</span>
+                    <span>Git</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                </div>
+            </div>
+
+            <!-- Project 2: School ERP -->
+            <div class="project-card glass-panel">
+                <div class="project-header">
+                    <div class="project-icon"><i class='bx bx-building-house'></i></div>
+                </div>
+                <h3>School ERP SaaS Platform</h3>
+                <p>Designed scalable cloud architecture using FastAPI, PostgreSQL, Docker, and AWS. Implemented
+                    automated monitoring and system logging workflows.</p>
+                <div class="project-tech">
+                    <span>FastAPI</span>
+                    <span>PostgreSQL</span>
+                    <span>Docker</span>
+                    <span>AWS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                </div>
+            </div>
+
+            <!-- Project 3: Kubernetes Lab -->
+            <div class="project-card glass-panel">
+                <div class="project-header">
+                    <div class="project-icon"><i class='bx xl-kubernetes' style="color: #326ce5;"></i></div>
+                </div>
+                <h3>Kubernetes Deployment Lab</h3>
+                <p>Deployed containerized applications using Deployments, Services, ConfigMaps, and Ingress. Managed
+                    application scaling and service exposure within Kubernetes clusters.</p>
+                <div class="project-tech">
+                    <span>Kubernetes</span>
+                    <span>Docker</span>
+                    <span>Helm</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                </div>
+            </div>
+
+            <!-- Project 4: Ansible Automation -->
+            <div class="project-card glass-panel">
+                <div class="project-header">
+                    <div class="project-icon"><i class='bx bx-code-alt'></i></div>
+                </div>
+                <h3>Infrastructure Automation using Ansible</h3>
+                <p>Created Ansible playbooks for server provisioning, package installation, and automated software
+                    deployment across multiple nodes.</p>
+                <div class="project-tech">
+                    <span>Ansible</span>
+                    <span>YAML</span>
+                    <span>Linux</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                </div>
+            </div>
+
+            <!-- Project 5: Terraform AWS -->
+            <div class="project-card glass-panel">
+                <div class="project-header">
+                    <div class="project-icon"><i class='bx bx-shape-triangle'></i></div>
+                </div>
+                <h3>Terraform AWS Infrastructure</h3>
+                <p>Provisioned secure, scalable EC2 infrastructure and networking components using modular Terraform
+                    configurations and Infrastructure as Code practices.</p>
+                <div class="project-tech">
+                    <span>Terraform</span>
+                    <span>AWS VPC</span>
+                    <span>EC2</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                </div>
+            </div>
+
+            <!-- Project 6: AI Voice Agent -->
+            <div class="project-card glass-panel">
+                <div class="project-header">
+                    <div class="project-icon"><i class='bx bx-microphone'></i></div>
+                </div>
+                <h3>AI Voice Approval Agent</h3>
+                <p>Built AI-powered approval workflow using FastAPI, Twilio, AWS, and OpenAI. Automated outbound voice
+                    approvals and integrated real-time workflow processing.</p>
+                <div class="project-tech">
+                    <span>FastAPI</span>
+                    <span>Twilio</span>
+                    <span>OpenAI</span>
+                    <span>AWS</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/aniket532015" target="_blank"><i class='bx bxl-github'></i> Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- *************************Skills Section************************* -->
+    <section class="skills" id="skills">
+        <h2 class="title">My <span>Skills</span></h2>
+        <div class="skills-container">
+            <!-- Skill Category: Cloud & DevOps -->
+            <div class="skills-category-card glass-panel">
+                <h3><i class='bx bx-cloud'></i> Cloud & DevOps</h3>
+                <div class="skills-tag-list">
+                    <div class="skill-tag"><span>AWS (EC2, S3, IAM, SQS)</span><span class="skill-pct">85%</span></div>
+                    <div class="skill-tag"><span>GCP Basics</span><span class="skill-pct">60%</span></div>
+                    <div class="skill-tag"><span>Jenkins (CI/CD)</span><span class="skill-pct">80%</span></div>
+                    <div class="skill-tag"><span>GitHub Actions</span><span class="skill-pct">75%</span></div>
+                    <div class="skill-tag"><span>Docker</span><span class="skill-pct">80%</span></div>
+                    <div class="skill-tag"><span>Kubernetes & Helm</span><span class="skill-pct">70%</span></div>
+                </div>
+            </div>
+
+            <!-- Skill Category: Infrastructure as Code & Monitoring -->
+            <div class="skills-category-card glass-panel">
+                <h3><i class='bx bx-network-chart'></i> IaC & Observability</h3>
+                <div class="skills-tag-list">
+                    <div class="skill-tag"><span>Terraform</span><span class="skill-pct">75%</span></div>
+                    <div class="skill-tag"><span>Ansible</span><span class="skill-pct">80%</span></div>
+                    <div class="skill-tag"><span>AWS CloudWatch</span><span class="skill-pct">85%</span></div>
+                    <div class="skill-tag"><span>System Logging & Alerting</span><span class="skill-pct">80%</span>
                     </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">02/24 - 03/24 <i class='bx bxs-calendar'></i></div>
-                            <h3>Music Recommendation System</h3>
-                            <p><strong>Tech Stack:</strong> Java, SQL, HTML/CSS/JS</p>
-                            <p>Built secure web app with user auth (login/logout) & CRUD operations for songs/playlists. Developed collaborative filtering recommendation engine using cosine similarity filtering (SQL queries on 10K+ songs using Jena Api's).</p>
-                        </div>
-                    </div>
+                    <div class="skill-tag"><span>Performance Monitoring</span><span class="skill-pct">80%</span></div>
+                </div>
+            </div>
+
+            <!-- Skill Category: Development & Databases -->
+            <div class="skills-category-card glass-panel">
+                <h3><i class='bx bx-code-block'></i> Programming & DBs</h3>
+                <div class="skills-tag-list">
+                    <div class="skill-tag"><span>Java</span><span class="skill-pct">90%</span></div>
+                    <div class="skill-tag"><span>Spring Boot</span><span class="skill-pct">85%</span></div>
+                    <div class="skill-tag"><span>MuleSoft (Mule 4)</span><span class="skill-pct">85%</span></div>
+                    <div class="skill-tag"><span>Python & Bash Scripting</span><span class="skill-pct">80%</span></div>
+                    <div class="skill-tag"><span>SQL (MySQL, PostgreSQL)</span><span class="skill-pct">75%</span></div>
+                    <div class="skill-tag"><span>Linux Administration</span><span class="skill-pct">80%</span></div>
                 </div>
             </div>
         </div>
@@ -254,71 +508,90 @@
     <!-- *************************Certifications Section************************* -->
     <section class="certifications" id="certifications">
         <h2 class="title">My <span>Certifications</span></h2>
-        <div class="row start-animation">
-            <div class="column">
-                <h2>Professional Certifications</h2>
-                <div class="box">
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">January 2022 <i class='bx bxs-calendar'></i></div>
-                            <h3>
-                                <a href="https://drive.google.com/drive/folders/1mGt192lFn9MVCaRbnVI1XvCiEeOOqEjG" target="_blank" rel="noopener noreferrer">
-                                    Google Cloud Challenge
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">September 2022 <i class='bx bxs-calendar'></i></div>
-                            <h3>Java Programming @IIT Bombay Spoken Tutorial</h3>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">May 2023 <i class='bx bxs-calendar'></i></div>
-                            <h3>
-                                <a href="https://drive.google.com/file/d/1UwwTLOlR9N-5lfJRWpruREEq0msU_xyv/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                                    NPTEL Certification in Cloud Computing
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">June 2024 <i class='bx bxs-calendar'></i></div>
-                            <h3>SQL Developer @Lagazon Edutech Pvt. Ltd.</h3>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">2024 <i class='bx bxs-calendar'></i></div>
-                            <h3>
-                                <a href="https://www.credly.com/badges/11f2b98c-10fb-4d61-92a3-62ce5d9fab68/linked_in?t=sv8sum" target="_blank" rel="noopener noreferrer">
-                                    MuleSoft Developer @Salesforce
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">January 2025 <i class='bx bxs-calendar'></i></div>
-                            <h3>
-                                <a href="https://drive.google.com/file/d/1a-HQHIN22e3ACTQpmYx4ScmUB8z1pDkf/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                                    ITIL Certification @InvenioLSI
-                                </a>
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="education-content">
-                        <div class="content">
-                            <div class="year">April 2025 <i class='bx bxs-calendar'></i></div>
-                            <h3>
-                                <a href="https://www.credly.com/badges/11f2b98c-10fb-4d61-92a3-62ce5d9fab68/linked_in?t=sv8sum" target="_blank" rel="noopener noreferrer">
-                                    AWS Cloud 101 @AWS Educate
-                                </a>
-                            </h3>
-                        </div>
+        <div class="certs-grid">
+            <!-- Cert Card -->
+            <a href="https://www.credly.com/badges/11f2b98c-10fb-4d61-92a3-62ce5d9fab68/linked_in?t=sv8sum"
+                target="_blank" class="cert-card glass-panel">
+                <div class="cert-badge-icon"><i class='bx bx-award'></i></div>
+                <div class="cert-info">
+                    <span class="cert-date">2025</span>
+                    <h3>AWS Cloud 101</h3>
+                    <p>AWS Educate</p>
+                </div>
+                <div class="cert-link-arrow"><i class='bx bx-link-external'></i></div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1a-HQHIN22e3ACTQpmYx4ScmUB8z1pDkf/view?usp=drive_link"
+                target="_blank" class="cert-card glass-panel">
+                <div class="cert-badge-icon"><i class='bx bx-shield-check'></i></div>
+                <div class="cert-info">
+                    <span class="cert-date">2025</span>
+                    <h3>ITIL Certification</h3>
+                    <p>InvenioLSI</p>
+                </div>
+                <div class="cert-link-arrow"><i class='bx bx-link-external'></i></div>
+            </a>
+
+            <a href="https://www.credly.com/badges/11f2b98c-10fb-4d61-92a3-62ce5d9fab68/linked_in?t=sv8sum"
+                target="_blank" class="cert-card glass-panel">
+                <div class="cert-badge-icon"><i class='bx bx-certification'></i></div>
+                <div class="cert-info">
+                    <span class="cert-date">2024</span>
+                    <h3>MuleSoft Developer</h3>
+                    <p>Salesforce</p>
+                </div>
+                <div class="cert-link-arrow"><i class='bx bx-link-external'></i></div>
+            </a>
+
+            <a href="https://drive.google.com/file/d/1UwwTLOlR9N-5lfJRWpruREEq0msU_xyv/view?usp=drive_link"
+                target="_blank" class="cert-card glass-panel">
+                <div class="cert-badge-icon"><i class='bx bx-cloud-upload'></i></div>
+                <div class="cert-info">
+                    <span class="cert-date">2023</span>
+                    <h3>NPTEL Cloud Computing</h3>
+                    <p>IIT Kharagpur / NPTEL</p>
+                </div>
+                <div class="cert-link-arrow"><i class='bx bx-link-external'></i></div>
+            </a>
+
+            <div class="cert-card glass-panel">
+                <div class="cert-badge-icon"><i class='bx bxl-java'></i></div>
+                <div class="cert-info">
+                    <span class="cert-date">2022</span>
+                    <h3>Java Programming</h3>
+                    <p>IIT Bombay Spoken Tutorial</p>
+                </div>
+                <div class="cert-link-arrow" style="visibility: hidden;"><i class='bx bx-link-external'></i></div>
+            </div>
+
+            <a href="https://drive.google.com/drive/folders/1mGt192lFn9MVCaRbnVI1XvCiEeOOqEjG" target="_blank"
+                class="cert-card glass-panel">
+                <div class="cert-badge-icon"><i class='bx bxl-google'></i></div>
+                <div class="cert-info">
+                    <span class="cert-date">2022</span>
+                    <h3>Google Cloud Challenge</h3>
+                    <p>Google Cloud</p>
+                </div>
+                <div class="cert-link-arrow"><i class='bx bx-link-external'></i></div>
+            </a>
+        </div>
+    </section>
+
+    <!-- *************************Education Section************************* -->
+    <section class="education" id="education">
+        <h2 class="title">My <span>Education</span></h2>
+        <div class="education-grid">
+            <div class="education-card glass-panel">
+                <div class="edu-icon"><i class='bx bx-book-reader'></i></div>
+                <div class="edu-details">
+                    <span class="edu-year">May 2020 - May 2024</span>
+                    <h3>GIET University</h3>
+                    <p class="edu-degree">Bachelor of Technology in Computer Science and Engineering</p>
+                    <p class="edu-location">Odisha, India</p>
+                    <div class="edu-badges">
+                        <span class="badge-mini">Top 5% of Batch</span>
+                        <span class="badge-mini">EX LEAD @ Data Science Club</span>
+                        <span class="badge-mini">EX LEAD @ Google DSC</span>
                     </div>
                 </div>
             </div>
@@ -326,56 +599,126 @@
     </section>
 
     <!-- *************************Contact Section************************* -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <h2 class="title">Contact <span>Me</span></h2>
-        <!-- <div class="contact-info" style="text-align: center; margin-bottom: 30px; color: #fff;">
-            <p><i class='bx bx-phone'></i> +91-9122969421</p>
-            <p><i class='bx bx-envelope'></i> akaniketkumar532015@gmail.com</p>
-            <p><i class='bx bxl-linkedin'></i> <a href="https://www.linkedin.com/in/aniketkumar/" target="_blank" style="color: #00abf0;">linkedin.com/in/aniketkumar/</a></p>
-            <p><i class='bx bxl-github'></i> <a href="https://github.com/aniket532015" target="_blank" style="color: #00abf0;">github.com/aniket532015</a></p>
-        </div> -->
-        <form id="contact-form">  <!-- Added correct ID -->
-            <div class="input-box">
-                <input type="text" name="name" required placeholder="Full Name" id="name">
-                <input type="email" name="email" required placeholder="Email" id="email">
+        <div class="contact-container">
+            <div class="contact-info-panel glass-panel">
+                <h3>Get in Touch</h3>
+                <p>Have an interesting project, automation challenge, or consulting opportunity? Drop me a message and
+                    I'll get back to you as soon as possible.</p>
+
+                <div class="contact-details-list">
+                    <div class="contact-detail-item">
+                        <div class="detail-icon"><i class='bx bx-phone'></i></div>
+                        <div class="detail-text">
+                            <span>Phone</span>
+                            <a href="tel:+919122969421">+91-9122969421</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon"><i class='bx bx-envelope'></i></div>
+                        <div class="detail-text">
+                            <span>Email</span>
+                            <a href="mailto:akaniketkumar532015@gmail.com">akaniketkumar532015@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail-item">
+                        <div class="detail-icon"><i class='bx bx-globe'></i></div>
+                        <div class="detail-text">
+                            <span>Website</span>
+                            <a href="https://aniket.uk" target="_blank">aniket.uk</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="input-box">
-                <input type="number" name="phonenumber" required placeholder="Mobile Number" id="phonenumber">
-                <input type="text" name="subject" required placeholder="Subject" id="subject">
-            </div>
-            <textarea name="message" id="message" cols="30" rows="10" placeholder="Message" required></textarea>
-            <input type="submit" value="Send Message" class="btn">
-        </form>
+
+            <form id="contact-form" class="glass-panel contact-form">
+                <div class="form-row">
+                    <div class="input-group">
+                        <input type="text" name="name" required placeholder="Full Name" id="name">
+                    </div>
+                    <div class="input-group">
+                        <input type="email" name="email" required placeholder="Email Address" id="email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <input type="number" name="phonenumber" required placeholder="Mobile Number" id="phonenumber">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="subject" required placeholder="Subject" id="subject">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <textarea name="message" id="message" cols="30" rows="6" placeholder="Your Message"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit-btn">
+                    <span>Send Message</span> <i class='bx bx-paper-plane'></i>
+                </button>
+            </form>
+        </div>
     </section>
 
-
-    </section>
+    <!-- *************************Footer************************* -->
     <footer>
         <div class="footer-content">
-            <div class="footer-contact">
-                <div class="contact-item">
-                    <i class='bx bx-phone'></i>
-                    <span>+91-9122969421</span>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bx-envelope'></i>
-                    <span>akaniketkumar532015@gmail.com</span>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bxl-linkedin'></i>
-                    <a href="https://www.linkedin.com/in/aniket-kumar-840b571b8/" target="_blank">linkedin.com/in/aniketkumar/</a>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bxl-github'></i>
-                    <a href="https://github.com/aniket532015" target="_blank">github.com/aniket532015</a>
+            <p>Copyright &copy; 2026 by Aniket Kumar. All Rights Reserved.</p>
+            <a href="#home" class="back-to-top" aria-label="Scroll back to top">
+                <i class='bx bx-up-arrow-alt'></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- *************************Floating AI Chatbot************************* -->
+    <div class="chatbot-container" id="chatbot-container">
+        <!-- Floating Chat Button -->
+        <button id="chatbot-toggle" class="chatbot-toggle-btn" aria-label="Open AI Assistant">
+            <i class='bx bx-bot bot-icon'></i>
+            <i class='bx bx-x close-icon'></i>
+            <span class="notification-badge">1</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="chatbot-window glass-panel" id="chatbot-window">
+            <div class="chat-header">
+                <div class="chat-header-title">
+                    <div class="avatar-container">
+                        <i class='bx bx-bot'></i>
+                        <span class="status-indicator online"></span>
+                    </div>
+                    <div class="chat-title-text">
+                        <h4>Aniket's AI Agent</h4>
+                        <span>Online | Powered by Local KB</span>
+                    </div>
                 </div>
             </div>
-            <div class="footer-text">
-                <p>Copyright @ 2025 by Aniket Kumar</p>
+
+            <div class="chat-messages" id="chat-messages">
+                <div class="chat-bubble bot">
+                    <p>Hi! I am Aniket's AI assistant. Ask me anything about his skills, experience, or projects!</p>
+                </div>
+            </div>
+
+            <div class="chat-quick-replies" id="chat-quick-replies">
+                <button class="quick-reply-chip" data-question="What is his tech stack?">Tech Stack</button>
+                <button class="quick-reply-chip" data-question="Tell me about his AI Voice Agent project.">AI Voice
+                    Project</button>
+                <button class="quick-reply-chip" data-question="Does he have certifications?">Certifications</button>
+                <button class="quick-reply-chip" data-question="How can I contact him?">Contact Info</button>
+            </div>
+
+            <div class="chat-input-area">
+                <input type="text" id="chatbot-input" placeholder="Type a message..." autocomplete="off">
+                <button id="chatbot-send" aria-label="Send message">
+                    <i class='bx bx-send'></i>
+                </button>
             </div>
         </div>
-        <a href="index.html#" class="back-to-top"> <i class='bx bx-up-arrow-alt'></i></a>
-    </footer>
+    </div>
+
+    <!-- Toast container for notifications -->
+    <div id="toast-container" class="toast-container"></div>
 
     <!-- Lottie Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
