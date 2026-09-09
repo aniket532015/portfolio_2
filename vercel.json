@@ -11,5 +11,9 @@
         { "key": "Permissions-Policy", "value": "geolocation=(), microphone=(), camera=()" }
       ]
     }
+  ],
+  "rewrites": [
+    { "source": "/api/openapi.json", "destination": "/api/openapi" }
   ]
 }
+

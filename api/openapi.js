@@ -1,8 +1,219 @@
-import { readFileSync } from 'fs';
-import { join } from 'path';
+// OpenAPI 3.0.3 Specification for Aniket Kumar Portfolio API
+const spec = {
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Aniket Kumar Portfolio API",
+    "description": "Serverless API endpoints powering portfolio functionality including GitHub repository synchronization and contact message delivery.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Aniket Kumar",
+      "email": "akaniketkumar532015@gmail.com",
+      "url": "https://github.com/aniket532015"
+    }
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": "Current Origin"
+    },
+    {
+      "url": "https://aniketkumar.me",
+      "description": "Production URL"
+    }
+  ],
+  "paths": {
+    "/api/get-repos": {
+      "get": {
+        "summary": "Fetch GitHub Repositories",
+        "description": "Fetches public and private repositories for the portfolio showcase, filtered and sorted by recent update date.",
+        "operationId": "getRepos",
+        "tags": [
+          "Projects"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of GitHub repository details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Repository"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Failed to fetch repositories from GitHub.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/send-email": {
+      "post": {
+        "summary": "Send Contact Message",
+        "description": "Receives contact form submissions and delivers formatted email notifications via SMTP.",
+        "operationId": "sendEmail",
+        "tags": [
+          "Contact"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactSubmission"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email dispatched successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Email sent successfully"
+                    },
+                    "preview": {
+                      "type": "string",
+                      "nullable": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid submission payload or validation failure.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "SMTP delivery error or service unconfigured.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/openapi.json": {
+      "get": {
+        "summary": "OpenAPI Specification",
+        "description": "Returns this OpenAPI 3.0 specification document.",
+        "operationId": "getOpenApiSpec",
+        "tags": [
+          "Documentation"
+        ],
+        "responses": {
+          "200": {
+            "description": "OpenAPI Specification Document",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Repository": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "portfolio_2"
+          },
+          "private": {
+            "type": "boolean",
+            "example": false
+          },
+          "description": {
+            "type": "string",
+            "example": "Modern portfolio web application"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "example": "https://github.com/aniket532015/portfolio_2"
+          }
+        }
+      },
+      "ContactSubmission": {
+        "type": "object",
+        "required": [
+          "name",
+          "email",
+          "message"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Jane Doe"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "jane@example.com"
+          },
+          "phonenumber": {
+            "type": "string",
+            "example": "+1 555-0199"
+          },
+          "subject": {
+            "type": "string",
+            "example": "Project Collaboration Inquiry"
+          },
+          "message": {
+            "type": "string",
+            "example": "Hello Aniket, I came across your portfolio and would like to connect."
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Failed to dispatch email notification"
+          },
+          "error": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+};
 
 export default async function handler(req, res) {
-  // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -17,15 +228,6 @@ export default async function handler(req, res) {
     return;
   }
 
-  try {
-    const specPath = join(process.cwd(), 'api', 'openapi.json');
-    const fileContent = readFileSync(specPath, 'utf8');
-    const spec = JSON.parse(fileContent);
-
-    res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    res.status(200).json(spec);
-  } catch (error) {
-    console.error('Error serving openapi.json:', error);
-    res.status(500).json({ message: 'Failed to load OpenAPI specification', error: error.message });
-  }
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.status(200).json(spec);
 }
