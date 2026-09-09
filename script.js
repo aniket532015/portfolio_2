@@ -201,7 +201,7 @@ if (themeToggleBtn) {
 // ************************* Typing Effect *************************
 const typedTextSpan = document.getElementById('typed-text');
 const strings = [
-    "Senior Associate DevOps Consultant",
+    "Senior Associate Consultant",
     "Cloud Infrastructure Specialist",
     "Java Backend Developer",
     "CI/CD Pipeline Automation Expert"
@@ -672,7 +672,7 @@ function handleTerminalCommand(cmd) {
             
         case 'about':
         case 'bio':
-            output.innerHTML = `Senior Associate DevOps Consultant with 2+ years of experience in cloud infrastructure, CI/CD, reliability engineering, and backend Java Spring Boot. Expert in AWS, Docker, Kubernetes, and Jenkins. Specialized in automating deployments and enhancing system uptime.`;
+            output.innerHTML = `Senior Associate Consultant with 2+ years of experience in cloud infrastructure, CI/CD, reliability engineering, and backend Java Spring Boot. Expert in AWS, Docker, Kubernetes, and Jenkins. Specialized in automating deployments and enhancing system uptime.`;
             break;
             
         case 'skills':
@@ -686,12 +686,12 @@ function handleTerminalCommand(cmd) {
             break;
             
         case 'experience':
-            output.innerHTML = `<span class="text-green">Senior Associate DevOps Consultant @ InvenioLSI</span> (June 2024 - Present)
+            output.innerHTML = `<span class="text-green">Senior Associate Consultant @ InvenioLSI</span> (June 2024 - Present)
   - Designed/maintained Jenkins pipelines, saving 50% deployment overhead.
   - Managed AWS cloud clusters (EC2, S3, IAM, CloudWatch groups).
   - Supported Spring Boot microservices, containerization, and troubleshooting.
   
-<span class="text-green">Associate DevOps Consultant @ InvenioLSI</span> (June 2024 Initial Role)
+<span class="text-green">Associate Consultant @ InvenioLSI</span> (June 2024 Initial Role)
   - Developed backend data loaders, slashing manual processing time by 40%.
   - Configured AWS CloudWatch alarms, SQS queues, and server maintenance scripts.
   - Programmed Java automation scripts and migrated integrations using Mule 4.`;
@@ -920,8 +920,8 @@ function getBotReply(msg) {
     if (msg.includes('experience') || msg.includes('work') || msg.includes('job') || msg.includes('current')) {
         return `Aniket has transitioned through two roles at <strong>InvenioLSI</strong> (Hyderabad, India) since joining in June 2024:
         <br><br>
-        1. <strong>Senior Associate DevOps Consultant</strong> (Current): Focuses on managing enterprise AWS infrastructure, designing Jenkins CI/CD pipelines (saving 50% deployment time), Docker container scaling, and keeping cloud systems highly available.<br><br>
-        2. <strong>Associate DevOps Consultant</strong> (Initial): Developed backend automated financial pipelines (40% manual time reduction), created Java-based admin scripts, managed AWS SQS and CloudWatch monitoring, and built cloud-to-cloud integration endpoints with MuleSoft (Mule 4).`;
+        1. <strong>Senior Associate Consultant</strong> (Current): Focuses on managing enterprise AWS infrastructure, designing Jenkins CI/CD pipelines (saving 50% deployment time), Docker container scaling, and keeping cloud systems highly available.<br><br>
+        2. <strong>Associate Consultant</strong> (Initial): Developed backend automated financial pipelines (40% manual time reduction), created Java-based admin scripts, managed AWS SQS and CloudWatch monitoring, and built cloud-to-cloud integration endpoints with MuleSoft (Mule 4).`;
     }
 
     if (msg.includes('cert') || msg.includes('credential')) {

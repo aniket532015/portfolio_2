@@ -45,7 +45,7 @@ export default async function handler(req, res) {
   const portfolioDetails = {
     profile: {
       name: "Aniket Kumar",
-      title: "Senior Associate DevOps Consultant & Cloud Engineer",
+      title: "Senior Associate Consultant & Cloud Engineer",
       bio: "DevOps Engineer with 2+ years of experience in cloud infrastructure, CI/CD automation, application deployment, monitoring, and backend systems. Experienced in AWS, Docker, Kubernetes, Jenkins, Terraform, Ansible, Linux, and Java Spring Boot. Specializes in automating deployments, improving system reliability, and supporting enterprise-scale applications.",
       headline: "Automating cloud infrastructure, accelerating deployments & engineering resilient distributed systems.",
       status: "Available for Projects & Consulting",
@@ -72,7 +72,7 @@ export default async function handler(req, res) {
     experience: [
       {
         company: "InvenioLSI",
-        role: "Senior Associate DevOps Consultant",
+        role: "Senior Associate Consultant",
         location: "Hyderabad, India",
         period: "June 2024 - Present",
         type: "Full-time",
