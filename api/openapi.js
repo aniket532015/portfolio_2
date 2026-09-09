@@ -140,6 +140,55 @@ const spec = {
           }
         }
       }
+    },
+    "/api/details": {
+      "get": {
+        "summary": "Get Complete Portfolio Details",
+        "description": "Retrieves complete profile details, experience, skills breakdown, featured projects, repository links, certifications, education, cloud registry, and AI widget configuration.",
+        "operationId": "getPortfolioDetails",
+        "tags": [
+          "Profile"
+        ],
+        "parameters": [
+          {
+            "name": "section",
+            "in": "query",
+            "description": "Optional section filter (e.g., profile, skills, featuredProjects, experience, education, certifications)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "profile",
+                "contact",
+                "socials",
+                "experience",
+                "skills",
+                "featuredProjects",
+                "repositories",
+                "certifications",
+                "education",
+                "cloudInfrastructureRegistry",
+                "aiAssistant"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Portfolio profile and engineering metadata successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed."
+          }
+        }
+      }
     }
   },
   "components": {

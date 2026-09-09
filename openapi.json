@@ -26,7 +26,9 @@
         "summary": "Fetch GitHub Repositories",
         "description": "Fetches public and private repositories for the portfolio showcase, filtered and sorted by recent update date.",
         "operationId": "getRepos",
-        "tags": ["Projects"],
+        "tags": [
+          "Projects"
+        ],
         "responses": {
           "200": {
             "description": "A list of GitHub repository details.",
@@ -59,7 +61,9 @@
         "summary": "Send Contact Message",
         "description": "Receives contact form submissions and delivers formatted email notifications via SMTP.",
         "operationId": "sendEmail",
-        "tags": ["Contact"],
+        "tags": [
+          "Contact"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -119,7 +123,9 @@
         "summary": "OpenAPI Specification",
         "description": "Returns this OpenAPI 3.0 specification document.",
         "operationId": "getOpenApiSpec",
-        "tags": ["Documentation"],
+        "tags": [
+          "Documentation"
+        ],
         "responses": {
           "200": {
             "description": "OpenAPI Specification Document",
@@ -130,6 +136,55 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/details": {
+      "get": {
+        "summary": "Get Complete Portfolio Details",
+        "description": "Retrieves complete profile details, experience, skills breakdown, featured projects, repository links, certifications, education, cloud registry, and AI widget configuration.",
+        "operationId": "getPortfolioDetails",
+        "tags": [
+          "Profile"
+        ],
+        "parameters": [
+          {
+            "name": "section",
+            "in": "query",
+            "description": "Optional section filter (e.g., profile, skills, featuredProjects, experience, education, certifications)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "profile",
+                "contact",
+                "socials",
+                "experience",
+                "skills",
+                "featuredProjects",
+                "repositories",
+                "certifications",
+                "education",
+                "cloudInfrastructureRegistry",
+                "aiAssistant"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Portfolio profile and engineering metadata successfully retrieved.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed."
           }
         }
       }
@@ -161,7 +216,11 @@
       },
       "ContactSubmission": {
         "type": "object",
-        "required": ["name", "email", "message"],
+        "required": [
+          "name",
+          "email",
+          "message"
+        ],
         "properties": {
           "name": {
             "type": "string",
