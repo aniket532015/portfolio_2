@@ -116,6 +116,52 @@ export default async function handler(req, res) {
     },
     featuredProjects: [
       {
+        id: "alfred-ai-platform",
+        title: "Alfred AI — Enterprise Autonomous Multi-Agent Platform",
+        description: "Industrial-grade Autonomous Multi-Agent AI Platform featuring a 5-agent specialized harness, deterministic AST policy engine, Temporal durable workflows, multi-LLM failover (Claude, GPT-4, Gemini), and embeddable chat SDK.",
+        technologies: ["FastAPI", "Angular 19", "Temporal.io", "MongoDB", "Redis", "Docker", "OpenAPI 3.1"],
+        liveUrl: "https://integrate-ai.aniket.uk/",
+        githubUrl: "https://github.com/aniket532015",
+        status: "Production Ready / Live",
+        highlights: [
+          "5-agent specialized harness with streaming tool execution",
+          "Deterministic AST policy verification before action execution",
+          "Durable long-running workflow orchestration with Temporal.io",
+          "Shadow DOM embeddable chat widget (agent.js)",
+          "Over 120+ documented OpenAPI 3.1 micro-endpoints"
+        ]
+      },
+      {
+        id: "ai-hybrid-voice-caller",
+        title: "AI Hybrid Voice Caller",
+        description: "Intelligent automated telephony system for healthcare appointment reminders & scheduling. Combines low-latency Rule Engine (Fast Path) with dynamic multi-AI fallback (Gemini 2.0 Flash Live, Mistral, GPT-4o-mini) and Amazon Polly Neural TTS.",
+        technologies: ["FastAPI", "Twilio Voice API", "Gemini Live", "Mistral AI", "OpenAI", "MongoDB Atlas", "Amazon Polly"],
+        liveUrl: "https://aicalling.aniket.uk/",
+        githubUrl: "https://github.com/aniket532015/ai-hybrid-voice-caller",
+        status: "Production Ready / Live",
+        highlights: [
+          "Low-latency dual-path engine: Rule-based fast path + Contextual AI fallback",
+          "Automated multi-provider LLM failover chain (Gemini -> Mistral -> OpenAI)",
+          "Real-time bidirectional speech recognition and Twilio webhook event handling",
+          "Live MongoDB Atlas integration for appointment slot scheduling & call logging"
+        ]
+      },
+      {
+        id: "camporaone-school-os",
+        title: "CamporaOne — The School Operating System",
+        description: "Modern all-in-one Campus ERP SaaS connecting admissions CRM funnel, live fee billing ledgers, academic grading, timetables, and multi-branch parent portals in one unified, real-time cloud database.",
+        technologies: ["Next.js", "React", "Tailwind CSS", "PostgreSQL", "Cloud Hosted", "Multi-Branch SaaS"],
+        liveUrl: "https://www.camporaone.com/",
+        githubUrl: "https://github.com/aniket532015",
+        status: "Production SaaS / Live",
+        highlights: [
+          "Admissions CRM with real-time lead funnel conversion tracking",
+          "Automated billing ledgers, fee collection tracking, and digital receipting",
+          "Dedicated responsive portals for parents, teachers, and school administrators",
+          "Scalable multi-branch cloud infrastructure with weekly continuous deployment"
+        ]
+      },
+      {
         id: "aws-cicd-pipeline",
         title: "AWS CI/CD Pipeline",
         description: "Built automated deployment pipeline using Jenkins, GitHub, and AWS EC2. Reduced deployment cycles and improved release reliability across environments.",
@@ -126,19 +172,6 @@ export default async function handler(req, res) {
           "Automated triggering via GitHub webhooks",
           "Integrated test validation and artifact packaging",
           "Zero-downtime deployment on AWS EC2 nodes"
-        ]
-      },
-      {
-        id: "school-erp-saas",
-        title: "School ERP SaaS Platform",
-        description: "Designed scalable cloud architecture using FastAPI, PostgreSQL, Docker, and AWS. Implemented automated monitoring and system logging workflows.",
-        technologies: ["FastAPI", "PostgreSQL", "Docker", "AWS", "Python"],
-        githubUrl: "https://github.com/aniket532015",
-        status: "Completed",
-        highlights: [
-          "Multi-tenant data isolation and role-based access control",
-          "Automated DB backups and schema migrations",
-          "Integrated audit logging and system health checks"
         ]
       },
       {
@@ -155,19 +188,6 @@ export default async function handler(req, res) {
         ]
       },
       {
-        id: "ansible-automation",
-        title: "Infrastructure Automation using Ansible",
-        description: "Created Ansible playbooks for server provisioning, package installation, security hardening, and automated software deployment across multiple nodes.",
-        technologies: ["Ansible", "YAML", "Linux", "SSH", "Bash"],
-        githubUrl: "https://github.com/aniket532015",
-        status: "Production Ready",
-        highlights: [
-          "Idempotent playbooks for multi-server orchestration",
-          "Automated security patch management and firewall rules",
-          "Dynamic inventory integration with cloud providers"
-        ]
-      },
-      {
         id: "terraform-aws-infrastructure",
         title: "Terraform AWS Infrastructure",
         description: "Provisioned secure, scalable EC2 infrastructure and networking components using modular Terraform configurations and Infrastructure as Code practices.",
@@ -181,29 +201,16 @@ export default async function handler(req, res) {
         ]
       },
       {
-        id: "ai-voice-agent",
-        title: "AI Voice Approval Agent",
-        description: "Built AI-powered approval workflow using FastAPI, Twilio, AWS, and OpenAI. Automated outbound voice approvals and integrated real-time workflow processing.",
-        technologies: ["FastAPI", "Twilio API", "OpenAI GPT-4", "AWS", "WebSockets"],
-        githubUrl: "https://github.com/aniket532015/ai-hybrid-voice-caller",
-        status: "Active",
-        highlights: [
-          "Real-time bidirectional audio streaming with Twilio Media Streams",
-          "Automated telephony dispatch for urgent workflow approvals",
-          "Dynamic context injection with low-latency LLM responses"
-        ]
-      },
-      {
-        id: "alfred-ai-platform",
-        title: "Alfred AI — Enterprise Autonomous Multi-Agent Platform",
-        description: "Enterprise workflow harness supporting autonomous AI agent execution, distributed orchestration with Temporal, MongoDB change-stream publishing, and embedded chat widget.",
-        technologies: ["FastAPI", "Angular 19", "Temporal.io", "MongoDB", "Redis", "Docker"],
+        id: "ansible-automation",
+        title: "Infrastructure Automation using Ansible",
+        description: "Created Ansible playbooks for server provisioning, package installation, security hardening, and automated software deployment across multiple nodes.",
+        technologies: ["Ansible", "YAML", "Linux", "SSH", "Bash"],
         githubUrl: "https://github.com/aniket532015",
-        status: "Active Development",
+        status: "Production Ready",
         highlights: [
-          "Multi-agent task harness with streaming tool execution",
-          "Embeddable lightweight chat widget (agent.js) via Shadow DOM",
-          "OpenAPI 3.1 specification across 120+ micro-endpoints"
+          "Idempotent playbooks for multi-server orchestration",
+          "Automated security patch management and firewall rules",
+          "Dynamic inventory integration with cloud providers"
         ]
       }
     ],

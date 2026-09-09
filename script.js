@@ -716,11 +716,15 @@ To connect a token and fetch private repositories, click the <b>Connect Token</b
             
         case 'projects':
             output.innerHTML = `Featured Projects:
-  1. <span class="text-green">AWS CI/CD Pipeline</span> - Jenkins automated deployment on AWS EC2.
-  2. <span class="text-green">School ERP SaaS</span> - FastAPI, PostgreSQL, Docker, AWS infrastructure.
-  3. <span class="text-green">Kubernetes Lab</span> - Multi-app orchestration with Ingress, Helm.
-  4. <span class="text-green">AI Voice Approval Agent</span> - Twilio, FastAPI, AWS, OpenAI outbound voice approvals.
-  5. <span class="text-green">Terraform AWS</span> - Modular IaC provisioning of secure cloud network.
+  1. <span class="text-green">Alfred AI Multi-Agent Platform</span> [LIVE: integrate-ai.aniket.uk]
+     Autonomous multi-agent harness, Temporal workflows, MongoDB & FastAPI.
+  2. <span class="text-green">AI Hybrid Voice Caller</span> [LIVE: aicalling.aniket.uk]
+     Healthcare appointment calling with Twilio, Gemini Live & Polly Neural.
+  3. <span class="text-green">CamporaOne School OS</span> [LIVE: camporaone.com]
+     Modern all-in-one Campus ERP SaaS connecting admissions, fees & grading.
+  4. <span class="text-green">AWS CI/CD Pipeline</span> - Automated Jenkins deployment on EC2.
+  5. <span class="text-green">Kubernetes Deployment Lab</span> - Microservices orchestration & Helm.
+  6. <span class="text-green">Terraform AWS Infrastructure</span> - Modular IaC cloud architecture.
   
 Type <span class="text-cyan">repos</span> to list all public/private repositories currently fetched from GitHub.`;
             break;
@@ -878,14 +882,14 @@ function getBotReply(msg) {
     }
     
     if (msg.includes('project')) {
-        return `Aniket has built several impressive projects:
+        return `Aniket has built several production-grade and live projects:
         <br><br>
-        • <strong>AI Voice Approval Agent:</strong> Twilio, FastAPI, OpenAI & AWS integration.<br>
-        • <strong>AWS CI/CD Pipeline:</strong> Automated deployment on AWS EC2 using Jenkins.<br>
-        • <strong>School ERP SaaS:</strong> Multi-tenant system with FastAPI, Docker, and PostgreSQL.<br>
-        • <strong>Kubernetes Lab:</strong> Application scaling and exposure with Helm & Ingress.
+        • <strong><a href="https://integrate-ai.aniket.uk/" target="_blank" style="color:var(--accent-cyan);">Alfred AI</a>:</strong> Enterprise Autonomous Multi-Agent Platform with Temporal durable workflows and embeddable chat SDK.<br>
+        • <strong><a href="https://aicalling.aniket.uk/" target="_blank" style="color:var(--accent-cyan);">AI Hybrid Voice Caller</a>:</strong> Dual-path telephony system with Twilio, Gemini Live, Mistral fallback & Polly Neural.<br>
+        • <strong><a href="https://www.camporaone.com/" target="_blank" style="color:var(--accent-cyan);">CamporaOne</a>:</strong> Modern School Operating System ERP SaaS for admissions, fees, and academic grading.<br>
+        • <strong>AWS CI/CD & K8s Labs:</strong> Automated Jenkins pipelines, Helm deployments, and Terraform IaC.
         <br><br>
-        Try asking me <strong>"Show me your repositories"</strong> to load his real-time repository feed!`;
+        Try asking me <strong>"Show me your repositories"</strong> to load his real-time GitHub feed!`;
     }
     
     if (msg.includes('repo') || msg.includes('repository') || msg.includes('repositories') || msg.includes('private')) {
