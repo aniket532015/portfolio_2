@@ -262,9 +262,9 @@ export default async function handler(req, res) {
     ],
     aiAssistant: {
       type: "Alfred AI Embeddable Agent",
-      publicId: "agt_5TdfjHHEBlOo7kSiRJfZEg",
+      publicId: "agt_Qiut6UMKj0ae52ExXo_Dww",
       apiBase: "https://integrate-ai.aniket.uk/api/v1",
-      sdkUrl: "/agent.js"
+      sdkUrl: "https://integrate-ai.aniket.uk/sdk/agent.js"
     },
     apiEndpoints: [
       { path: "/api/details", method: "GET", description: "Complete portfolio metadata, profile, projects, skills, and telemetry" },

@@ -766,12 +766,13 @@
     <script src="script.js"></script>
 
     <!-- Alfred Widget -->
-    <script src="agent.js"></script>
+    <script src="https://integrate-ai.aniket.uk/sdk/agent.js"></script>
     <script>
         if (typeof Agent !== 'undefined') {
             Agent.init({
-                publicId: "agt_5TdfjHHEBlOo7kSiRJfZEg",
-                apiBase: "https://integrate-ai.aniket.uk/api/v1"
+                publicId: "agt_Qiut6UMKj0ae52ExXo_Dww",
+                apiBase: "https://integrate-ai.aniket.uk/api/v1",
+                voice: true  // mic input + spoken replies (browser Web Speech; set false to disable)
             });
         }
     </script>
