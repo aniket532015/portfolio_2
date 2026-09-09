@@ -723,6 +723,17 @@
     <!-- Lottie Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="script.js"></script>
+
+    <!-- Alfred Widget -->
+    <script src="agent.js"></script>
+    <script>
+      if (typeof Agent !== 'undefined') {
+        Agent.init({
+          publicId: "agt_5TdfjHHEBlOo7kSiRJfZEg",
+          apiBase: "https://integrate-ai.aniket.uk/api/v1"
+        });
+      }
+    </script>
 </body>
 
 </html>
