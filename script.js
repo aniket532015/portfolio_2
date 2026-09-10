@@ -249,9 +249,11 @@ const navLinks = document.querySelectorAll('header nav a');
 const header = document.querySelector('.header');
 
 if (menubar && Navbar) {
-    menubar.onclick = () => {
+    menubar.onclick = (e) => {
+        e.stopPropagation();
         menubar.classList.toggle('bx-x');
         Navbar.classList.toggle('active');
+        document.body.classList.toggle('menu-open', Navbar.classList.contains('active'));
     };
 }
 
@@ -261,8 +263,29 @@ navLinks.forEach(link => {
         if (menubar && Navbar) {
             menubar.classList.remove('bx-x');
             Navbar.classList.remove('active');
+            document.body.classList.remove('menu-open');
         }
     });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (Navbar && Navbar.classList.contains('active')) {
+        if (!Navbar.contains(e.target) && !menubar.contains(e.target)) {
+            menubar.classList.remove('bx-x');
+            Navbar.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    }
+});
+
+// Reset menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && Navbar && Navbar.classList.contains('active')) {
+        menubar.classList.remove('bx-x');
+        Navbar.classList.remove('active');
+        document.body.classList.remove('menu-open');
+    }
 });
 
 window.addEventListener('scroll', () => {
