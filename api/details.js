@@ -67,7 +67,7 @@ export default async function handler(req, res) {
       github: "https://github.com/aniket532015",
       linkedin: "https://www.linkedin.com/in/aniket-kumar-devops/",
       website: "https://aniket.uk",
-      resumeDownload: "https://aniket.uk/#home"
+      resumeDownload: "https://aniket.uk/Aniket_Kumar_Resume.pdf"
     },
     experience: [
       {
