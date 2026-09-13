@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="alfredFaviconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="50%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#FF007A" />
+    </linearGradient>
+  </defs>
+  <path d="M50 10 L88 85 L68 85 L50 48 L32 85 L12 85 L50 10 Z" fill="url(#alfredFaviconGrad)" />
+  <path d="M50 60 L64 85 L36 85 Z" fill="#FF007A" />
+</svg>
